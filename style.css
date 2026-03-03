@@ -1,55 +1,119 @@
-body {
-    background-color: #DEB887;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-     h1 {
-        text-align: center;
-        color: #333;
-    }
-    h2 {
-        text-align: center;
-        color: #333;
-    }
-    div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    div.carrinho {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        button {
-            padding: 10px 20px;
-            background-color: #cf8626;
-            color: rgb(255, 255, 255);
-            border-radius: 0cap;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    }}
-
-nav, .menu, .options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+:root{
+  --bg: #DEB887;
+  --accent: #cf8626;
+  --card: #fff;
+  --muted: #4b4b4b;
+  --radius: 8px;
+  --max-width: 1100px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-nav a, .menu a, .options a {
-    text-decoration: none;
-    color: #333;
-    padding: 10px 15px;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background-color:var(--bg);
+  color: #222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-nav a:hover, .menu a:hover, .options a:hover {
-    background-color: hsl(219, 100%, 50%);
-    border-radius: 5px;
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:18px;
 }
+
+.site-header{
+  padding:14px 0 8px;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
+.site-header .lead{ margin:6px 0 0; color:var(--muted) }
+
+.main-grid{
+  display:grid;
+  grid-template-columns: 1fr 340px;
+  gap:18px;
+  align-items:start;
+  padding:18px 0;
+}
+
+
+.options h2{ margin:0 0 12px }
+.brigadeiro-options{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.option-card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:12px;
+  width: calc(33.333% - 8px);
+  min-width:180px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  text-align:center;
+}
+
+.option-card h3{ margin:0 0 8px; font-size:15px }
+.option-card button{
+  padding:8px 12px;
+  border-radius:6px;
+  border:none;
+  background:var(--accent);
+  color:#fff;
+  cursor:pointer;
+}
+
+/* bandeja */
+.tray-select{ margin-top:14px; display:flex; flex-direction:column; gap:8px; max-width:320px }
+.tray-select select{ padding:8px; border-radius:6px; border:1px solid rgba(0,0,0,0.08) }
+
+/* carrinho */
+.card{ background:var(--card); padding:14px; border-radius:var(--radius); box-shadow:0 6px 18px rgba(0,0,0,0.06) }
+.cart h2{ margin-top:0; margin-bottom:10px }
+.cart-list{ max-height:360px; overflow:auto; display:flex; flex-direction:column; gap:8px; margin-bottom:10px }
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  padding:8px;
+  border-radius:6px;
+  border:1px solid rgba(0,0,0,0.04);
+}
+
+.cart-item .left{ display:flex; gap:12px; align-items:center }
+.cart-item .qty{ font-weight:700; min-width:28px; text-align:center }
+
+.cart-item button{
+  padding:6px 8px;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+  background:#eee;
+}
+
+/* resumo e ações */
+.cart-summary{ margin-bottom:12px; color:var(--muted) }
+.customer input{ width:100%; padding:8px; border-radius:6px; border:1px solid rgba(0,0,0,0.06); margin-bottom:8px }
+
+.actions{ display:flex; gap:8px; flex-wrap:wrap }
+.btn{ padding:10px 12px; border-radius:6px; border:none; cursor:pointer; background:#ddd }
+.btn.ghost{ background:transparent; border:1px solid rgba(0,0,0,0.06) }
+.btn.primary{ background:var(--accent); color:#fff; flex:1 }
+
+/* footer */
+.site-footer{ padding:14px 0; border-top:1px solid rgba(0,0,0,0.06); color:var(--muted) }
+
+/* responsivo */
+@media (max-width: 900px){
+  .main-grid{ grid-template-columns: 1fr; }
+  .option-card{ width: calc(50% - 8px) }
+}
+@media (max-width: 520px){
+  .option-card{ width: 100% }
+}
+.small{ font-size:13px; color:var(--muted) }
+.muted{ color:var(--muted); font-size:13px }
