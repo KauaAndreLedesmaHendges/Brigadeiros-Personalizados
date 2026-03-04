@@ -10,7 +10,7 @@
   <header class="site-header">
     <div class="container">
       <h1>Brigadeiros Personalizados</h1>
-      <p class="lead">Personalize suas bandejas — adicione sabores, salve no navegador e envie por WhatsApp</p>
+      <p class="lead">Personalize suas bandejas — fotos acima das opções, carrinho com localStorage e envio por WhatsApp</p>
     </div>
   </header>
 
@@ -19,7 +19,7 @@
       <h2>Escolha os sabores</h2>
 
       <div class="brigadeiro-options" id="optionsList">
-        <!-- cards de sabores gerados via JS -->
+        <!-- cards gerados via JS -->
       </div>
 
       <div class="tray-select">
@@ -58,14 +58,14 @@
         <button id="sendBtn" class="btn primary" disabled>Enviar via WhatsApp</button>
       </div>
 
-      <p class="muted small">Dados salvos automaticamente no navegador. Para limpar manualmente: `localStorage.removeItem('brigadeiros_cart')`</p>
+      <p class="muted small">Dados salvos automaticamente no navegador. Para limpar manualmente: <code>localStorage.removeItem('brigadeiros_cart')</code></p>
     </aside>
   </main>
 
   <footer class="site-footer">
-    <div class="container">Desenvolvido usando a sua base — versão funcional e modular.</div>
+    <div class="container">Desenvolvido usando a sua base — fotos integradas com fallback automático.</div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
