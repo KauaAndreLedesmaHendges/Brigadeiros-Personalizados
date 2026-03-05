@@ -1,5 +1,11 @@
 const STORAGE_KEY = 'brigadeiros_cart';
 
+const TRAY_PRICES = {
+  20: 30,
+  40: 60,
+  80: 100
+};
+
 const FLAVORS = [
   {
     id: 'tradicional',
@@ -70,6 +76,7 @@ const custPhoneEl = document.getElementById('custPhone');
 const saveBtn = document.getElementById('saveBtn');
 const clearBtn = document.getElementById('clearBtn');
 const sendBtn = document.getElementById('sendBtn');
+const trayPriceEl = document.getElementById('trayPrice');
 
 
 const FALLBACK_IMG = 'https://via.placeholder.com/400x300?text=Imagem+indispon%C3%ADvel';
@@ -150,9 +157,12 @@ function updateSummary(){
   if(state.trayLimit) {
     const remaining = Math.max(0, state.trayLimit - total);
     unitsRemainingEl.textContent = remaining;
+    const price = TRAY_PRICES[state.trayLimit] || 0;
+    trayPriceEl.textContent = price.toFixed(2).replace('.', ',');
     sendBtn.disabled = (total !== state.trayLimit);
   } else {
     unitsRemainingEl.textContent = '—';
+    trayPriceEl.textContent = '—';
     sendBtn.disabled = true;
   }
   saveToStorage();
@@ -259,11 +269,14 @@ function sendViaWhatsApp(){
   lines.push(`*Pedido — Brigadeiros*`);
   lines.push(`Cliente: ${custNameEl.value.trim()}`);
   lines.push(`Bandeja: ${state.trayLimit} unidades`);
+  const price = TRAY_PRICES[state.trayLimit] || 0;
+  lines.push(`Valor: R$ ${price.toFixed(2).replace('.', ',')}`);
+  lines.push(``);
   lines.push(`Sabores:`);
   Object.entries(state.counts).forEach(([id, qty]) => {
     if(qty > 0){
       const f = FLAVORS.find(x => x.id === id);
-      lines.push(`${f.name} x ${qty}`);
+      lines.push(`• ${f.name} x ${qty}`);
     }
   });
   const text = encodeURIComponent(lines.join('\n'));

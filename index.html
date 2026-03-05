@@ -19,7 +19,7 @@
       <h2>Escolha os sabores</h2>
 
       <div class="brigadeiro-options" id="optionsList">
-        <!-- cards gerados via JS -->
+        
       </div>
 
       <div class="tray-select">
@@ -45,6 +45,7 @@
         <div>Total unidades: <strong id="totalUnits">0</strong></div>
         <div>Limite bandeja: <strong id="trayLimit">—</strong></div>
         <div>Faltam: <strong id="unitsRemaining">—</strong></div>
+        <div style="margin-top:8px; padding-top:8px; border-top:1px solid rgba(0,0,0,0.1); font-weight:700; color:#cf8626;">Valor: R$ <strong id="trayPrice">—</strong></div>
       </div>
 
       <div class="customer">
@@ -58,13 +59,11 @@
         <button id="sendBtn" class="btn primary" disabled>Enviar via WhatsApp</button>
       </div>
 
-      <p class="muted small">Dados salvos automaticamente no navegador. Para limpar manualmente: <code>localStorage.removeItem('brigadeiros_cart')</code></p>
+      
     </aside>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">Desenvolvido usando a sua base — fotos integradas com fallback automático.</div>
-  </footer>
+  
 
   <script src="script.js" defer></script>
 </body>
