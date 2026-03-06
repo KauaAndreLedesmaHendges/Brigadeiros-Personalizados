@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brigadeiros Personalizados</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Brigadeiros Personalizados</h1>
+      <p class="lead">Personalize suas bandejas — fotos acima das opções, carrinho com localStorage e envio por WhatsApp</p>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <section class="options">
+      <h2>Escolha os sabores</h2>
+
+      <div class="brigadeiro-options" id="optionsList">
+        
+      </div>
+
+      <div class="tray-select">
+        <label for="tray">Tamanho da bandeja</label>
+        <select id="tray">
+          <option value="" selected>— selecione —</option>
+          <option value="20">Pequena — 20 un</option>
+          <option value="40">Média — 40 un</option>
+          <option value="80">Grande — 80 un</option>
+        </select>
+        <p class="muted">Ao atingir o limite da bandeja, não será possível adicionar mais unidades.</p>
+      </div>
+    </section>
+
+    <aside class="cart card">
+      <h2>Carrinho</h2>
+
+      <div id="cartList" class="cart-list">
+        <!-- itens do carrinho -->
+      </div>
+
+      <div class="cart-summary">
+        <div>Total unidades: <strong id="totalUnits">0</strong></div>
+        <div>Limite bandeja: <strong id="trayLimit">—</strong></div>
+        <div>Faltam: <strong id="unitsRemaining">—</strong></div>
+        <div style="margin-top:8px; padding-top:8px; border-top:1px solid rgba(0,0,0,0.1); font-weight:700; color:#cf8626;">Valor: R$ <strong id="trayPrice">—</strong></div>
+      </div>
+
+      <div class="customer">
+        <input id="custName" placeholder="Nome (ex: Maria Silva)" />
+        <input id="custPhone" placeholder="WhatsApp (ex: 5511999887766)" />
+      </div>
+
+      <div class="actions">
+        <button id="saveBtn" class="btn ghost">Salvar pedido</button>
+        <button id="clearBtn" class="btn" title="Limpar carrinho">Limpar</button>
+        <button id="sendBtn" class="btn primary" disabled>Enviar via WhatsApp</button>
+      </div>
+
+      
+    </aside>
+  </main>
+
+  
+
+  <script src="script.js" defer></script>
+</body>
+</html>
